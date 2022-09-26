@@ -1,0 +1,40 @@
+.container{
+    position: absolute;
+    width: 210px;
+    height: 681px;
+    top: 114px;
+    right: 80px;
+
+    background:  #fff;
+    box-shadow: 3px 3px 10px 6px rgba(0,0,0,0.06);
+    user-select: none;
+}
+
+.dropDownItem{
+    padding: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dropDownItem:hover{
+    background: #D9D9D9;
+}
+
+.text{
+    font-family: 'Basic', sans-serif;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+
+    color: #D72C3E;
+
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.link{
+    text-decoration: none;
+}
