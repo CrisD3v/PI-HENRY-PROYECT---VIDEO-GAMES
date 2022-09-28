@@ -9,6 +9,7 @@
     height: 147px;
     left: -28px;
     top: -16px;
+    user-select: none;
 }
 
 .title{
@@ -25,6 +26,8 @@
     line-height: 20px;
 
     color: #D72C3E;
+    user-select: none;
+
 }
 
 .subTitle{
@@ -41,4 +44,6 @@
     line-height: 8px;
 
     color: #D72C3E;
+    user-select: none;
+
 }

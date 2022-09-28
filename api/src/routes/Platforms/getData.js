@@ -1,47 +1,16 @@
 const axios = require("axios");
 const { Platform } = require("../../db");
-// require("dotenv").config();
+require("dotenv").config();
 const { API_KEY } = process.env;
-const url = `https://api.rawg.io/api/platforms`
-
-const loadPlatforms = async (db = false) => {
-    let platforms = [];
-  
-    const platformsExist = await Platform.findAll();
-  
-    if (!platformsExist.length) {
-        const api = await axios(`${url}?key=${API_KEY}`);
-  
-        platforms = [...api.data.results];
-  
-      // FILTER INF
-
-        platforms = platforms.map((platform) => {
-        const { id, name } = platform;
-        const obj = {
-          id,
-          name,
-        }
-  
-        return obj
-
-      })
-    }
-  
-    if (db && !platformsExist.length) await Platform.bulkCreate(platforms);
-  
-    return platforms;
-}
+const url = `https://api.rawg.io/api/platforms/lists/parents`
 
 const getDataPlatforms = async (req, res) => {
     try {
-      // const platforms = await loadPlatforms();
+
+      const  apiresult = await axios.get(`${url}?key=${API_KEY}`)
+      let apivgplat = apiresult.data.results.map(p => p.name)
   
-      const platforms = await Platform.findAll();
-  
-      // console.log(`Platforms length: ${platforms.length}`);
-  
-      return res.status(200).send(platforms);
+      return res.status(200).send(apivgplat);
 
     } catch (error) {
         return res.status(400).send(error);
@@ -49,6 +18,5 @@ const getDataPlatforms = async (req, res) => {
 }
 
 module.exports = {
-    loadPlatforms,
     getDataPlatforms
 }

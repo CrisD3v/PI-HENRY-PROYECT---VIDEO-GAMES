@@ -11,7 +11,7 @@ const loadGenres = async (db = false) => {
 
     if(!genresExist.lenght){
         const api = await axios.get(`${url}?key=${API_KEY}`)
-        genre = [...api.data.results]
+        genres = [...api.data.results]
 
 
       // FILTER INF
@@ -38,11 +38,11 @@ const loadGenres = async (db = false) => {
 const getDataGenres = async (req, res) => {
     try {
 
-        // const genres = await loadGenres();
+        const genres = await loadGenres();
     
-        const genres = await Genre.findAll();
+        // const genres = await Genre.findAll();
     
-        // console.log(`Genres length: ${genres.length}`);
+        console.log(`Genres length: ${genres.length}`);
     
         return res.status(200).send(genres);
 
