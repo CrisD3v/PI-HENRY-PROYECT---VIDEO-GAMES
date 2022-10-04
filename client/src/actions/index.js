@@ -21,7 +21,6 @@ const LOCALHOST = "http://localhost:3001";
 export  function getVideogames(){
   return async  function (dispatch){
       const res = await axios.get(`${LOCALHOST}/videogames`)
-      console.log(res)
       dispatch({ type: GET_VIDEOGAMES, payload: res.data });
   }
 }
@@ -33,44 +32,51 @@ export function getGenres() {
   }
 };
 
+export function getPlatforms(){
+  return async function (dispatch) {
+    const res = await axios.get(`${LOCALHOST}/platforms`)
+    dispatch({
+      type: GET_PLATFORMS,
+      payload: res.data
+    })
+  }
+}
 
-export const getPlatforms = () => (dispatch) => {
-    fetch(`${LOCALHOST}/platforms`)
-      .then((response) => response.json())
-      .then((data) =>
-        dispatch({
-          type: GET_PLATFORMS,
-          payload: data,
-        })
-      );
-};
-  
-export const getVideogamesByName = (name) => (dispatch) => {
-    fetch(`${LOCALHOST}/videogames?name=${name}`)
-      .then((response) => response.json())
-      .then((data) =>
-        dispatch({
-          type: GET_VIDEOGAMES_BY_NAME,
-          payload: data,
-        })
-      );
-};
-  
-export const getDetailVideogame = (id) => (dispatch) => {
-    try {
-      fetch(`${LOCALHOST}/videogames/${id}`)
-        .then((response) => response.json())
-        .then((data) =>
-          dispatch({
-            type: GET_DETAIL_VIDEOGAME,
-            payload: data,
-          })
-        );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
+export function getVideogamesByName(name){
+  return async function (dispatch){
+    const res = await axios.get(`${LOCALHOST}/videogames?name=${name}`)
+    dispatch({
+      type: GET_VIDEOGAMES_BY_NAME,
+      payload: res.data
+    })
+  }
+}
+
+export function getDetailVideogame(id) {
+  return async function (dispatch){
+    const res = await axios.get(`${LOCALHOST}/videogames/${id}`)
+    dispatch({
+      type: GET_DETAIL_VIDEOGAME,
+      payload: res.data
+    })
+  }
+}
+
+// export function postVideogame (payload){
+//   return async function (dispatch) {
+//     const res = await axios.get(`${LOCALHOST}/videogames`, {
+//       method: "POST",
+//       body: JSON.stringify(payload),
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     })
+
+//     return res
+    
+//   }
+// }
+
 export const postVideogame = (payload) => (dispatch) => {
     fetch(`${LOCALHOST}/videogames`, {
       method: "POST",

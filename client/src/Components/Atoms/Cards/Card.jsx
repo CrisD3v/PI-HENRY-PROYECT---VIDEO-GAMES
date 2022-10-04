@@ -15,7 +15,7 @@ function Card({ name, image, rating, genres }) {
         <p className={Style.subTitle}>Rating: {rating}</p>
         <p className={Style.subTitle}>Genres:</p>
         <div className={Style.genre}>
-          <p className={Style.text}>{genres.length ? genres.toString() : `No Genres`}</p>
+          <p className={Style.text}>{genres.length || genres ? genres.toString() : `No Genres`}</p>
         </div>
       </div>
     </div>

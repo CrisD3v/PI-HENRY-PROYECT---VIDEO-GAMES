@@ -1,10 +1,10 @@
 import React from 'react'
 import Style from './pagination.module.css'
-import {IoMdArrowDropright} from 'react-icons/io'
+import IconNext from '../../Icons/IconNext'
 
-function NextButton() {
+function NextButton({click, disabled}) {
   return (
-    <button className={Style.nextButton}>{<IoMdArrowDropright className={Style.icon}/>}</button>
+    <button className={Style.nextButton} onClick={click} disabled={disabled}>{<IconNext fill='#fff' className={Style.icon}/>}</button>
   )
 }
 

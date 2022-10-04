@@ -108,11 +108,11 @@ function rootReducer(state = initialState, action) {
                 } 
                 else if (action.payload === "database") {
                     apiOrDbFilter = [...state.videogamesByName].filter(
-                        (e) => e.createdInDb
+                        (e) => e.createInDb
                     );
                 } else {
                     apiOrDbFilter = [...state.videogamesByName].filter(
-                        (e) => !e.createdInDb
+                        (e) => !e.createInDb
                     );
                 }
         
@@ -127,10 +127,10 @@ function rootReducer(state = initialState, action) {
                 if (action.payload === "all") {
                     apiOrDbFilter = [...state.allVideogames];
                 } else if (action.payload === "database") {
-                    apiOrDbFilter = [...state.allVideogames].filter((e) => e.createdInDb);
+                    apiOrDbFilter = [...state.allVideogames].filter((e) => e.createInDb);
                 } else {
                     apiOrDbFilter = [...state.allVideogames].filter(
-                        (e) => !e.createdInDb
+                        (e) => !e.createInDb
                     );
                 }
         
@@ -191,7 +191,7 @@ function rootReducer(state = initialState, action) {
             };
   
         case GET_DETAIL_VIDEOGAME:
-            let videogameInfo;
+            let videogameInfo
             if (!Array.isArray(action.payload)) {
                 videogameInfo = { ...action.payload };
                 if (videogameInfo.genres.length) {
@@ -202,8 +202,11 @@ function rootReducer(state = initialState, action) {
                 else {
                     videogameInfo.genres = `No Genres`;
                 }
-                if (videogameInfo.platforms.length) {
+                if (videogameInfo.platforms) {
                     videogameInfo.platforms = videogameInfo.platforms.join(", ");
+                } 
+                else if (videogameInfo.platform) {
+                    videogameInfo.platforms = videogameInfo.platform.join(", ");
                 } 
                 else {
                     videogameInfo.platforms = `No Platforms`;

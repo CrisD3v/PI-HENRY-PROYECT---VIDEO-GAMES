@@ -29,7 +29,7 @@ const loadGenres = async (db = false) => {
 
     }
 
-    if (db && !genresExist.length) await Genre.bulkCreate(genres);
+    if (db && !genresExist.length) await Genre.bulkCreate(genres)
 
     return genres;
 }

@@ -5,7 +5,8 @@ const router = Router();
 const {
     getDataApi,
     getAllData,
-    getDataById
+    getDataById,
+    getDataDB
 } = require('./getData')
 
 const {postDataVideoGames} = require('./postData')
@@ -13,6 +14,7 @@ const {postDataVideoGames} = require('./postData')
 router.get('/', getAllData )
 
 router.get('/:idGames', getDataById )
+
 
 router.post('/', postDataVideoGames)
 

@@ -5,13 +5,14 @@ import NextButton from './../../Atoms/Buttons/PaginationButton/NextButton';
 import Style from './pagination.module.css'
 
 
-function Pagination({pag, actualPag}) {
+function Pagination({page, actualPage, nextPage, prevPage}) {
+  
   return (
     <div className={Style.container}>
-        <PrevButton/>
-        <InputPagination value={actualPag}/>
-        <p>DE {pag}</p>
-        <NextButton/>
+        <PrevButton click={prevPage} disabled={actualPage === 1 || actualPage < 1 }/>
+        <InputPagination value={actualPage}/>
+        <p>DE {page}</p>
+        <NextButton click={nextPage} disabled={actualPage === page}/>
     </div>
   )
 }

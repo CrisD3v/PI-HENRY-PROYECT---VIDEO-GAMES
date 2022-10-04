@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
-import { Link } from "react-router-dom";
 import Style from './asidefilter.module.css'
 import Rating from '../../Molecules/AsideOrder/Rating';
 import ApiOrDb from '../../Molecules/AsideOrder/ApiOrDb';
 import Alfabetico from './../../Molecules/AsideOrder/Alfabetico';
 
-function AsideFilter() {
+function AsideFilter({handleSetCurrentPage}) {
   const [isActive1, setIsActive1] = useState(false)
   const [isActive2, setIsActive2] = useState(false)
   const [isActive3, setIsActive3] = useState(false)
+
+
   return  (
     <div className={Style.container}>
 
@@ -17,7 +18,7 @@ function AsideFilter() {
         </div>
 
         {isActive1 && (
-            <Alfabetico/>
+            <Alfabetico handleSetCurrentPage={handleSetCurrentPage}/>
         )}
 
         <div className={Style.dropDownItem}  onClick={e=> setIsActive2(!isActive2)}>
@@ -25,7 +26,7 @@ function AsideFilter() {
         </div>
 
         {isActive2 && (
-            <Rating/>
+            <Rating handleSetCurrentPage={handleSetCurrentPage}/>
         )}
 
         <div className={Style.dropDownItem} onClick={e=> setIsActive3(!isActive3)}>
@@ -33,7 +34,7 @@ function AsideFilter() {
         </div>
 
         {isActive3 && (
-            <ApiOrDb/>
+            <ApiOrDb handleSetCurrentPage={handleSetCurrentPage}/>
         )}
 
     </div>

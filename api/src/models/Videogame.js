@@ -21,16 +21,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(10)
     },
     rating: {
-      type: DataTypes.FLOAT
+      type: DataTypes.FLOAT,
+      validate: {
+        max: 5
+      }
     },
-    platforms: {
+    platform: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     },
     image: {
       type: DataTypes.STRING
     },
-    crateInDb: {
+    createInDb: {
       type: DataTypes.BOOLEAN,
       default: true,
       allowNull: false

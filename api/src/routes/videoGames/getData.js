@@ -62,27 +62,88 @@ const getDataApi = async (req, res) => {
     }
 }
 
-//GET DATA OF DATABASE
-const getDataDB = async (req, res) => {
+const getDataDB = async (req,res) => {
     try {
         let videogamesDb = await Videogame.findAll({
             include: {
                 model: Genre,
                 attributes: ["name"],
-                through: { attributes: [] },
-            },
-            });
-        
-        return videogamesDb;
+                through: {attributes: [],}
+            }
+        })
+
+        return videogamesDb
+
     } catch (error) {
         console.log(error)
     }
 }
 
+//GET DATA BY NAME
+const getDataByName = async (name, quantity) => {
+    let videogamesByName = await axios(
+      `${url}?search=${name.trim()}&key=${API_KEY}`
+    );
+  
+    videogamesByName = videogamesByName.data.results.slice(0, quantity);
+  
+    return videogamesByName;
+};
+
 //GET ALL DATA
 const getAllData = async (req, res) => {
+
+    let {name} = req.query
+
     const apiVideoGames = await getDataApi();
     const dbVideoGames = await getDataDB();
+
+    if(name) {
+        name.toLowerCase().trim
+        let quantity = 15
+
+        let nameDb = dbVideoGames.filter( game => {
+            game.name.toLowerCase().includes(name)
+        })
+
+        if (nameDb) quantity = 15 - nameDb.length
+
+        let videogames = await getDataByName(name, quantity);
+
+        videogames = videogames.map(game => {
+            const { id, name, background_image: image, genres, rating } = game;
+
+            const obj = {
+                id,
+                name,
+                image,
+                genres: genres.map((g) => g.name),
+                rating
+            }
+
+            return obj
+        })
+
+        nameDb = nameDb.map(game => {
+            const { id, name, background_image: image, genres, rating } = game;
+
+            const obj = {
+                id,
+                name,
+                image,
+                genres: genres.map((g) => g.name),
+                rating
+            }
+
+            return obj
+        })
+
+        videogames = [...nameDb, ...videogames]
+
+        if(!videogames.length) videogames.push('Error')
+
+        return res.status(200).send(videogames)
+    }
 
     const allVideoGames = [...apiVideoGames, ...dbVideoGames]
 
@@ -151,5 +212,6 @@ module.exports = {
     getDataApi,
     getDataDB,
     getAllData,
-    getDataById
+    getDataById,
+    getDataDB
 }

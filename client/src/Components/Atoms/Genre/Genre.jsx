@@ -1,10 +1,10 @@
 import React from 'react'
 import Checkbox2 from '../Inputs/InputForm/Checkbox/Checkbox2'
 
-function Genre(props) {
-    const {value, item} = props
+function Genre({value,item, handleSetCurrentPage}) {
+
   return (
-    <Checkbox2 value ={value} item={item}/>
+    <Checkbox2 value ={value} item={item} handleSetCurrentPage={handleSetCurrentPage} name='genre'/>
   )
 }
 
