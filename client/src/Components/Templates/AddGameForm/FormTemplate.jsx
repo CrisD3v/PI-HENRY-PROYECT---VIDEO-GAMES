@@ -8,6 +8,8 @@ import { getPlatforms, postVideogame , getGenres, resetVideogames, getVideogames
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import validate from './InputValidador'
+import Loading from './../../Molecules/Loading/Loading';
+import IconArrow from './../../Atoms/Icons/IconArrow';
 
 function FormTemplate() {
     const {container , wrapper , steps , button , four , col , section , row, cf, formWrapper , description, btnContainer} = Style
@@ -33,7 +35,6 @@ function FormTemplate() {
 
      useEffect(() => {
         dispatch(getPlatforms());
-        dispatch(getGenres())
       }, []);
 
     let handleSubmit = (e) => {
@@ -51,7 +52,6 @@ function FormTemplate() {
         if (input.platform.length===0) {return alert('Platform is required')}
         if(input.genre.length===0) {return alert('Genre is required')}
         dispatch(postVideogame(input))
-        dispatch(getVideogames())
         dispatch(resetVideogames())
         alert(`Videogame ${input.name} has been added`)
         setInput({ ...initialState})
@@ -85,7 +85,15 @@ function FormTemplate() {
 
   return (
     <div className={container}>
+        {allGenres.length === 0 || allPlatforms.length === 0 ? (
+            <Loading/>
+        ) : (
         <div className={wrapper}>
+            <div className={Style.back}>
+               <Link to='/home' className={Style.link}>
+                <IconArrow/>
+               </Link>
+            </div>
             <form action={formWrapper} onSubmit={handleSubmit}>
                 <fieldset className={`${section}`}>
                     <h3>VIDEO GAME</h3>
@@ -136,6 +144,8 @@ function FormTemplate() {
                 </fieldset>
             </form>
         </div>
+        )}
+        
     </div>
   )
 }

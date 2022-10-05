@@ -33,3 +33,17 @@
 .pagination{
     margin:50px 0 30px 0;
 }
+
+.back{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #D72C3E;
+}

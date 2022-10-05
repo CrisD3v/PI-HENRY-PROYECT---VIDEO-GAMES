@@ -8,6 +8,11 @@ function Rating({handleSetCurrentPage}) {
     <div className={Style.container}>
         <div className={Style.subContainer}>
             {/* <p className={Style.text}>Menor a Mayor</p> */}
+            <Checkbox handleSetCurrentPage={handleSetCurrentPage} value='Rating Def' valueFil='default' id='rating' name='rating'
+            />
+        </div>
+        <div className={Style.subContainer}>
+            {/* <p className={Style.text}>Menor a Mayor</p> */}
             <Checkbox handleSetCurrentPage={handleSetCurrentPage} value='Max a Min' valueFil='' id='rating' name='rating'
             />
         </div>

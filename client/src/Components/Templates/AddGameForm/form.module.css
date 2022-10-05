@@ -169,3 +169,12 @@ fieldset{
     font-weight: 500;
 
 }
+
+.back {
+    display: flex;
+    align-items: flex-start;
+}
+
+.link{
+    color: #D72C3E;
+}

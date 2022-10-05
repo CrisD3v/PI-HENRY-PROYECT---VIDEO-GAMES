@@ -209,9 +209,6 @@ const getDataById = async (req, res) => {
 }
 
 module.exports = {
-    getDataApi,
-    getDataDB,
     getAllData,
     getDataById,
-    getDataDB
 }

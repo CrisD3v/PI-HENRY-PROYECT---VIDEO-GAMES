@@ -24,30 +24,7 @@ export default function Checkbox({handleSetCurrentPage, value, valueFil, id , na
     setEnabled(!enabled)
   }
 
-  if(id === 'rating' || id === 'alfabetic'){
-    if(enabled === true){
-      valueFil = 'default'
-    }
-    else{
-      // eslint-disable-next-line no-self-assign
-      valueFil = valueFil
-      
-    }  
-  }
 
-  if(id === 'apiOrDb'){
-    if(enabled === true){
-      valueFil = 'all'
-    }
-    else{
-      // eslint-disable-next-line no-self-assign
-      valueFil = valueFil
-    } 
-  }
-
-  if(id === 'rating'){
-
-  }
 
   return (
     <div className='container1'>

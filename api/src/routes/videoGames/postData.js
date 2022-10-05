@@ -7,9 +7,12 @@ const url =  `https://api.rawg.io/api/games`
 const postDataVideoGames = async (req, res) => {
     try {
         let { name, description, released, rating, platform, image, genre, createInDb } = req.body;
+
         const validator =
         name && description && released && rating && platform && image ? true: false
+        
         if (!validator) return res.status(400).send(`Some data is missing!`);
+
         name = name.trim()
         description = description.trim()
         image = image.trim()

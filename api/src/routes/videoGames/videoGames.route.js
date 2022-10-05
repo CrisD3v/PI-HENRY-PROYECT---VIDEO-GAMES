@@ -3,10 +3,8 @@ const { Router } = require('express');
 const router = Router();
 
 const {
-    getDataApi,
     getAllData,
     getDataById,
-    getDataDB
 } = require('./getData')
 
 const {postDataVideoGames} = require('./postData')

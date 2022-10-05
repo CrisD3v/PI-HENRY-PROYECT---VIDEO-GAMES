@@ -7,6 +7,10 @@ function Alfabetico({handleSetCurrentPage}) {
     <div className={Style.container}>
         <div className={Style.subContainer}>
             {/* <p className={Style.text}>A - Z</p> */}
+            <Checkbox value='Def' handleSetCurrentPage={handleSetCurrentPage} id='alfabetic' valueFil='default' name='alfabetico'/>
+        </div>
+        <div className={Style.subContainer}>
+            {/* <p className={Style.text}>A - Z</p> */}
             <Checkbox value='A - Z' handleSetCurrentPage={handleSetCurrentPage} id='alfabetic' valueFil='a-z' name='alfabetico'/>
         </div>
         <div className={Style.subContainer}>

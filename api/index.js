@@ -24,7 +24,9 @@ require("dotenv").config();
 const { loadGenres } = require("./src/routes/Genres/getData");
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
-  await loadGenres(true);
+
+    loadGenres()
+
   server.listen(process.env.PORT, () => {
     console.log(`%s listening at ${process.env.PORT}`); // eslint-disable-line no-console
   });
