@@ -8,15 +8,22 @@ import Err404 from '../Errors/Err404';
 
 function HomeTemplate(props) {
   const dispatch = useDispatch()
-  // const memoryPage = useSelector((state) => state.currentPage)
   const allVideogames = useSelector((state) => state.videogames);
   const genres = useSelector((state) => state.genres)
   const [currentPage, setCurrentPage] = useState(1)
+
+  /**
+   * Cuando el usuario haga clic en el botón, configure la página actual en 1 y envíe el MemoryCurrentPage
+   * Acción con el valor de 1.
+   */
 
   const handleSetCurrentPage = () => {
     setCurrentPage(1);
     dispatch(memoryCurrentPage(1));
   }
+
+  /* Un hook que se llama cuando se monta el componente.*/
+
   useEffect (() => {
     dispatch(getVideogames())
     dispatch(getGenres())

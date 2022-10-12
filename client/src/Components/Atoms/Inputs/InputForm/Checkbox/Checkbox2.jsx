@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import Style from './checkbox.module.css'
 import { useSelector, useDispatch } from "react-redux";
 import { filterByGenre, getGenres } from "../../../../../actions/index";
@@ -6,16 +6,19 @@ import { filterByGenre, getGenres } from "../../../../../actions/index";
 function Checkbox2({value, item, handleSetCurrentPage, name}) {
   const dispatch = useDispatch();
   const allGenres = useSelector((state) => state.genres);
-  const [enabled, setEnabled] = useState(false)
 
+  /* Comprobación de si la matriz AllGenres está vacía, si es así, enviará la acción GetGenres.*/
   useEffect(() => {
     if (!allGenres.length) dispatch(getGenres());
   })
 
+  /**
+   * Cuando el usuario hace clic en un género, la página actual se establece en 1 y el género se filtra.
+   **/
+
   const handleFilterByGenre = (e) => {
     handleSetCurrentPage();
     dispatch(filterByGenre(e.target.value));
-    setEnabled(!enabled)
   }
 
  

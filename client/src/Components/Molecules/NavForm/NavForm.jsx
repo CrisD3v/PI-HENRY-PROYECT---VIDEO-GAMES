@@ -8,6 +8,12 @@ function NavForm({handleSetCurrentPage}) {
   const dispatch = useDispatch()
   const [nameVideogame, setNameVideogame] = useState("");
 
+  /**
+    * La función se llama cuando el usuario envía el formulario.Previene la acción predeterminada del formulario,
+    * Luego verifica si el nombre de nombre no está vacío.Si no está vacío, llama a HandleSetCurrentPage
+    * Función, restablece los videojuegos, obtiene los videojuegos por nombre y establece el NameVideOgame en un vacío
+    * cuerda.
+    **/
   const handleSubmit = (e) => {
     e.preventDefault();
   

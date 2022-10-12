@@ -1,3 +1,8 @@
+/**
+ * Verifica si la entrada es válida, y si no es así, devuelve un mensaje de error.
+ * @param input: la entrada del formulario
+ * @returns un objeto con los errores.
+ */
 function validate(input) {
     let errors = {}
     if (!input.name) {

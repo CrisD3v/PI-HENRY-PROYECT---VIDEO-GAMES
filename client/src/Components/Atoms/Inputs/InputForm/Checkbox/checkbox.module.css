@@ -1,7 +1,8 @@
 .container1{
   display: flex;
-  flex-direction: row-reverse;
- justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .togglerwrapper {
     display: block;

@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux';
 function DetailTemplate(props) {
 
   const {container, cardWrapper,  actions, backButton, cardInfo, cardText, cardDescription, cardInfoOverview} = Style
- 
+  
   const videogame = useSelector((state) => state.detail)
 
   const { name, description, released, rating, platforms, image, genres } = videogame

@@ -11,21 +11,36 @@ import IconArrow from '../../Atoms/Icons/IconArrow';
 
 function Section({setCurrentPage , currentPage, handleSetCurrentPage}) {
   const dispatch = useDispatch()
+
+  /* Obtener los datos de la store*/
+
   const allVgames = useSelector((state) => state.videogames)
   const allgenres = useSelector((state) => state.genres)
   const videogamesByName = useSelector((state) => state.videogamesByName);
  
+  /* Este es el código responsable de la paginación.*/
+
   const [page, setPage] = useState(1)
   const perPage = 15
-  
+
   const maximo = Math.round(allVgames.length / perPage)
   const lastVgameIndex = currentPage * perPage 
   const firstVgIndex = lastVgameIndex - perPage
   const currentVgames = allVgames.slice(firstVgIndex,lastVgameIndex) 
 
+  /**
+   * Cuando el usuario hace clic en el botón, se llamará a la función de despacho y el
+   * La función de BynametoAllVideOgames se pasará a la función de despacho.
+   */
+
   const handleFromByNameToVideogame = () => {
     dispatch(fromByNameToAllVideogames());
   }
+
+  /**
+   * Cuando el usuario hace clic en el botón de página siguiente, el número de página actual aumenta por uno, el número de página
+   * aumenta en uno, y el usuario se desplaza a la parte superior de la página.
+   */
 
   const nextPage = () => {
     setCurrentPage(currentPage + 1)
@@ -34,6 +49,12 @@ function Section({setCurrentPage , currentPage, handleSetCurrentPage}) {
       top: 0
     })
   }
+
+
+  /**
+   * PrevPage () es una función que establece la CurrentPage en la CurrentPage menos 1, establece la página en el
+   * Página menos 1 y desplaza la ventana a la parte superior.
+   */
 
   const prevPage = () => {
     setCurrentPage(currentPage - 1)
@@ -66,7 +87,7 @@ function Section({setCurrentPage , currentPage, handleSetCurrentPage}) {
       <div className= {Style.subContent}>
         {currentVgames && currentVgames.map(d =>{
           return(
-           <Link to={`/home/${d.id}`}>
+           <Link to={`/home/${d.id}`} key={d.id}>
               <CardGroup
                 name={d.name} image={d.image} rating={d.rating} genres={typeof d.genres === 'object'? d.genres : d.genres} key={d.id}
               /> 

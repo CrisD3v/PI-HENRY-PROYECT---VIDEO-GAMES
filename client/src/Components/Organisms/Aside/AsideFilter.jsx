@@ -18,7 +18,7 @@ function AsideFilter({handleSetCurrentPage}) {
         </div>
 
         {isActive1 && (
-            <Alfabetico handleSetCurrentPage={handleSetCurrentPage}/>
+            <Alfabetico handleSetCurrentPage={handleSetCurrentPage} />
         )}
 
         <div className={Style.dropDownItem}  onClick={e=> setIsActive2(!isActive2)}>

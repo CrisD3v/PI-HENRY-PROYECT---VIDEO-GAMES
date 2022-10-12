@@ -7,6 +7,9 @@ import { useDispatch } from 'react-redux';
 function Err404({handleSetCurrentPage}) {
   const dispatch = useDispatch();
   
+  /**
+   * Cuando el usuario haga clic en el botón Actualizar, restablezca el estado de los videojuegos y luego obtenga los videojuegos.
+   */
   const handlerRefresh = (e) => {
     e.preventDefault();
     handleSetCurrentPage();
