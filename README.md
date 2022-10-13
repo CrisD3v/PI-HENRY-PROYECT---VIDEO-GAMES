@@ -1,4 +1,4 @@
-![ProyectLogo]<img src='./gitLogo.png'/>
+<img src='./gitLogo.png'/>
 
 # Individual Project - Videogames
 
