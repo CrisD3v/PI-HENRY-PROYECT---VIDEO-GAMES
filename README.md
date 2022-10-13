@@ -1,10 +1,10 @@
-<p align="centerg">
+<p align="center">
   <img  src="./gitLogo.png" />
 </p>
 
 # Individual Project - Videogames
 
-<p align="centerg">
+<p align="center">
   <img  src="./Plantilla.png" />
 </p>
 
