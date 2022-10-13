@@ -1,6 +1,6 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
+![ProyectLogo]<img src='./gitLogo.png'/>
 
-# Individual Project - Henry Videogames
+# Individual Project - Videogames
 
 <p align="centerg">
   <img  src="./Plantilla.png" />
