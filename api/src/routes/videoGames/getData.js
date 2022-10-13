@@ -155,6 +155,8 @@ const getAllData = async (req, res) => {
 
         let videogames = await getDataByName(name, quantity);
 
+       
+
         /* Una función de mapa que devuelve un objeto con las propiedades del juego. */
         
         videogames = videogames.map(game => {

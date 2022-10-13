@@ -65,8 +65,6 @@ const getDataGenres = async (req, res) => {
         /* Llamando a la función LoadGenres () y asignando el resultado a la variable genres.*/
         const genres = await loadGenres(true);
 
-
-
         console.log(`Genres length: ${genres.length}`);
 
         /* Devolviendo la matriz de géneros.*/

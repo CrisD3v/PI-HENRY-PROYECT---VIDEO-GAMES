@@ -20,7 +20,7 @@ const postDataVideoGames = async (req, res) => {
 
         /* Comprobación de si los datos son válidos.*/
 
-        let { name, description, released, rating, platform, image, genre, createInDb } = req.body;
+        let { name, description, released, rating, platform, image, genre, createInDb } = req.body
 
         const validator =
             name && description && released && rating && platform && image ? true : false
@@ -32,7 +32,7 @@ const postDataVideoGames = async (req, res) => {
         name = name.trim()
         description = description.trim()
         image = image.trim()
-
+        
         createInDb = true
 
         const obj = {
