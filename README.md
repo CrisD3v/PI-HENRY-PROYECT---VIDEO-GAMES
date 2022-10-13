@@ -1,4 +1,6 @@
-<img src='./gitLogo.png'/>
+<p align="centerg">
+  <img  src="./gitLogo.png" />
+</p>
 
 # Individual Project - Videogames
 
